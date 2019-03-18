@@ -9,6 +9,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <nav>
+    <% if user_signed_in? %>
+      <p><%= "Logado como: #{current_user.email}" %></p>
+      <%= link_to 'Sair', destroy_user_session_path %>
+    <% end %>
+  </nav>
+
   <body>
     <%= yield %>
   </body>

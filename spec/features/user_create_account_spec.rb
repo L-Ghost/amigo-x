@@ -9,7 +9,7 @@ feature 'User create account' do
     fill_in 'Email', with: 'tobias@avantasia.com'
     fill_in 'Senha', with: 'thescarecrow2008'
     fill_in 'Confirmar Senha', with: 'thescarecrow2008'
-    click_on 'Enviar'
+    click_on 'Enviar Dados'
 
     expect(page).to have_content('Logado como: tobias@avantasia.com')
     expect(page).not_to have_link('Criar nova Conta')
@@ -24,7 +24,7 @@ feature 'User create account' do
     fill_in 'Email', with: ''
     fill_in 'Senha', with: ''
     fill_in 'Confirmar Senha', with: ''
-    click_on 'Enviar'
+    click_on 'Enviar Dados'
 
     expect(page).to have_content('Não foi possível criar a conta')
   end
