@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'User authenticates' do
   scenario 'and gets to home page' do
-    user = User.create!(name: 'Arjen', email: 'arjen@ayreon.com', password: '01011001')
+    user = create(:user, name: 'Arjen', email: 'arjen@ayreon.com', password: '01011001')
     visit root_path
     click_on 'Entrar'
 
@@ -19,7 +19,7 @@ feature 'User authenticates' do
   end
 
   scenario 'and logs out' do
-    user = User.create!(name: 'Arjen', email: 'arjen@ayreon.com', password: '01011001')
+    user = create(:user, name: 'Arjen', email: 'arjen@ayreon.com', password: '01011001')
     login_as(user, scope: :user)
 
     visit root_path
