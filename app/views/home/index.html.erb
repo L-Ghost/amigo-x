@@ -1,4 +1,11 @@
 
 <% if user_signed_in? %>
   <h3><%= "Bem vindo #{current_user.name}" %></h3>
+
+  <div>
+    <%= link_to 'Ver grupos criados por mim', my_groups_user_groups_path(current_user) %>
+  <div>
+  
+  
+  
 <% end %>

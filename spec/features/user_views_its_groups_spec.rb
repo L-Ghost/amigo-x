@@ -25,7 +25,7 @@ feature 'User views its groups' do
     click_on 'Ver grupos criados por mim'
     click_on xmas_group.name
 
-    expect(current_path).to eq(xmas_group)
+    expect(current_path).to eq(group_path(xmas_group))
     expect(page).to have_css('h1', text: xmas_group.name)
     expect(page).to have_content("Criado por: #{user.email}")
   end
