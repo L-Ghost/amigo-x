@@ -1,0 +1,11 @@
+<h1><%= "Grupos criados por #{current_user.name}" %></h1>
+
+<% if @groups.count %>
+  <ul>
+    <% @groups.each do |group| %>
+      <li><%= link_to group.name, group_path(group) %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<p><%= "Total de Grupos: #{@groups.count}" %></p>

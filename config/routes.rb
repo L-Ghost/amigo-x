@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :groups, only: [] do
       collection do
         get :my_groups
+        get :my_created_groups
       end
     end
   end

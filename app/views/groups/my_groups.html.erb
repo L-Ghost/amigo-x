@@ -1,11 +1,11 @@
-<h1><%= "Grupos criados por #{current_user.name}" %></h1>
+<h1>Meus Grupos</h1>
 
-<% if @groups.count %>
+<% if current_user.groups_participating.count %>
   <ul>
-    <% @groups.each do |group| %>
+    <% current_user.groups_participating.each do |group| %>
       <li><%= link_to group.name, group_path(group) %></li>
     <% end %>
   </ul>
 <% end %>
 
-<p><%= "Total de Grupos: #{@groups.count}" %></p>
+<p><%= "Total de Grupos: #{current_user.groups_participating.count}" %></p>

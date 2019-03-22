@@ -29,4 +29,23 @@ feature 'User views its groups' do
     expect(page).to have_css('h1', text: xmas_group.name)
     expect(page).to have_content("Criado por: #{user.email}")
   end
+
+  scenario 'where user is a participant' do
+    user = create(:user)
+    group1 = create(:group)
+    group2 = create(:group)
+    group3 = create(:group)
+    create(:group_participation, group: group1, user: user)
+    create(:group_participation, group: group2, user: user)
+    login_as(user, scope: :user)
+    
+    visit root_path
+    click_on 'Ver meus grupos'
+    
+    expect(page).to have_css('h1', text: "Meus Grupos")
+    expect(page).to have_css('li', text: group1.name)
+    expect(page).to have_css('li', text: group2.name)
+    expect(page).not_to have_css('li', text: group3.name)
+    expect(page).to have_content('Total de Grupos: 2')
+  end
 end

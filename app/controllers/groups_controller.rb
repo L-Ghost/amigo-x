@@ -17,8 +17,11 @@ class GroupsController < ApplicationController
       render :new
     end
   end
-
+  
   def my_groups
+  end
+
+  def my_created_groups
     @groups = Group.where(user: current_user)
   end
 end
