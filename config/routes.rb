@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :groups, only: [:show]
+  resources :groups, only: [:show, :new, :create]
   
 end

@@ -3,7 +3,12 @@
   <h3><%= "Bem vindo #{current_user.name}" %></h3>
 
   <div>
-    <%= link_to 'Ver grupos criados por mim', my_groups_user_groups_path(current_user) %>
+    <p>
+      <%= link_to 'Ver grupos criados por mim', my_groups_user_groups_path(current_user) %>
+    </p>
+    <p>
+      <%= link_to 'Criar novo Grupo', new_group_path %>
+    </p>
   <div>
   
   

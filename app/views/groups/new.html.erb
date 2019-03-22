@@ -1,0 +1,12 @@
+<% if @group.errors.any? %>
+  <p>Não foi possível criar o Grupo</p>
+  <% @group.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+<% end %>
+
+<%= form_for @group do |f| %>
+  <%= f.label :name, 'Nome' %>
+  <%= f.text_field :name %>
+  <%= f.submit 'Confirmar' %>
+<% end %>

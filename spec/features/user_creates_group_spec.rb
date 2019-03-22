@@ -7,7 +7,7 @@ feature 'User creates group' do
 
     visit root_path
     click_on 'Criar novo Grupo'
-    fill_in 'Nome', with 'Grupo da Empresa'
+    fill_in 'Nome', with: 'Grupo da Empresa'
     click_on 'Confirmar'
 
     expect(current_path).to eq(group_path(Group.last))
@@ -21,7 +21,7 @@ feature 'User creates group' do
     
     visit root_path
     click_on 'Criar novo Grupo'
-    fill_in 'Nome', with ''
+    fill_in 'Nome', with: ''
     click_on 'Confirmar'
 
     expect(page).to have_content('Não foi possível criar o Grupo')
