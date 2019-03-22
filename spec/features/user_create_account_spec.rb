@@ -10,8 +10,10 @@ feature 'User create account' do
     fill_in 'Senha', with: 'thescarecrow2008'
     fill_in 'Confirmar Senha', with: 'thescarecrow2008'
     click_on 'Enviar Dados'
-
-    expect(page).to have_content('Logado como: tobias@avantasia.com')
+    
+    expect(current_path).to eq(root_path)
+    expect(page).to have_css('h3', text: 'Bem vindo Tobias')
+    expect(page).to have_css('p', text: 'Logado como: tobias@avantasia.com')
     expect(page).not_to have_link('Criar nova Conta')
     expect(page).to have_link('Sair')
   end

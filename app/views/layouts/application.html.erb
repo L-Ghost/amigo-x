@@ -12,7 +12,10 @@
   <nav>
     <% if user_signed_in? %>
       <p><%= "Logado como: #{current_user.email}" %></p>
-      <%= link_to 'Sair', destroy_user_session_path %>
+      <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
+    <% else %>
+      <p><%= link_to 'Entrar', new_user_session_path %></p>
+      <p><%= link_to 'Criar nova Conta', new_user_registration_path %></p>
     <% end %>
   </nav>
 

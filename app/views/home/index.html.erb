@@ -1,4 +1,4 @@
 
-<% if !user_signed_in? %>
-  <%= link_to 'Criar nova Conta', new_user_registration_path %>
+<% if user_signed_in? %>
+  <h3><%= "Bem vindo #{current_user.name}" %></h3>
 <% end %>
