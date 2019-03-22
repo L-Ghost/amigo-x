@@ -30,4 +30,18 @@ feature 'User create account' do
 
     expect(page).to have_content('Não foi possível criar a conta')
   end
+
+  scenario 'and cannot leave name blank' do
+    visit root_path
+    click_on 'Criar nova Conta'
+
+    fill_in 'Nome', with: ''
+    fill_in 'Email', with: 'andy@hellowwen.com'
+    fill_in 'Senha', with: 'masteroftherings'
+    fill_in 'Confirmar Senha', with: 'masteroftherings'
+    click_on 'Enviar Dados'
+
+    expect(page).to have_content('Não foi possível criar a conta')
+    expect(page).to have_content('Você precisa informar um nome')
+  end
 end
