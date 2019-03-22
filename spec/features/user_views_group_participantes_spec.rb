@@ -10,7 +10,7 @@ feature 'User views Group Participants' do
     participants.each do |participant|
       create(:group_participation, user: participant, group: group)
     end
-    login_as(group_creator, scope: user)
+    login_as(group_creator, scope: :user)
 
     visit root_path
     click_on 'Ver grupos criados por mim'
@@ -31,7 +31,7 @@ feature 'User views Group Participants' do
     group_creator = create(:user)
     group = create(:group, user: group_creator, name: 'Grupo da Faculdade')
     create(:group_participation, user: group_creator, group: group)
-    login_as(group_creator, scope: user)
+    login_as(group_creator, scope: :user)
 
     visit root_path
     click_on 'Ver grupos criados por mim'

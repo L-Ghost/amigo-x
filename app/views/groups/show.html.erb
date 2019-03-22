@@ -1,3 +1,21 @@
 <h1><%= @group.name %></h1>
 
 <p><%= "Criado por: #{@group.user.email}" %></p>
+
+<div>
+  <h3>Participantes do Grupo</h3>
+  
+  <ul>
+    <% @group.users.each do |participant| %>
+      <li><%= participant.name %></li>
+    <% end %>
+  </ul>
+
+  <p>
+    <%= "Total de Participantes: #{@group.users.count}" %>
+  </p>
+  <p>
+    <%= link_to 'Adicionar Participantes' %>
+  </p>
+
+<div>

@@ -13,6 +13,7 @@ feature 'User creates group' do
     expect(current_path).to eq(group_path(Group.last))
     expect(page).to have_css('h1', text: Group.last.name)
     expect(page).to have_content("Criado por: #{Group.last.user.email}")
+    expect(page).to have_content('Total de Participantes: 1')
   end
 
   scenario 'and must fill in name' do

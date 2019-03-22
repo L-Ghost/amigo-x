@@ -11,6 +11,7 @@ class GroupsController < ApplicationController
     @group = Group.new(params.require(:group).permit(:name))
     @group.user = current_user
     if @group.save
+      GroupParticipation.create(group: @group, user: current_user)
       redirect_to @group
     else
       render :new
