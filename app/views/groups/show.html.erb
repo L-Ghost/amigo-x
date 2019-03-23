@@ -14,8 +14,10 @@
   <p>
     <%= "Total de Participantes: #{@group.users.count}" %>
   </p>
-  <p>
-    <%= link_to 'Adicionar Participantes' %>
-  </p>
+  <% if @group.user == current_user %>
+    <p>
+      <%= link_to 'Adicionar Participantes', add_participant_group_path(@group) %>
+    </p>
+  <% end %>
 
 <div>

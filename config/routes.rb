@@ -12,6 +12,11 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :groups, only: [:show, :new, :create]
+  resources :groups, only: [:show, :new, :create] do
+    member do
+      get :add_participant
+      patch :confirm_participant
+    end
+  end
   
 end

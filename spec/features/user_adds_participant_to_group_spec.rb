@@ -8,7 +8,7 @@ feature 'User adds participant to group' do
     login_as(user, scope: :user)
 
     visit root_path
-    click_on 'Meus Grupos'
+    click_on 'Ver meus grupos'
     click_on group.name
 
     expect(page).not_to have_link('Adicionar Participantes')
@@ -22,14 +22,13 @@ feature 'User adds participant to group' do
     login_as(user, scope: :user)
     
     visit root_path
-    click_on 'Meus Grupos'
+    click_on 'Ver meus grupos'
     click_on group.name
     click_on 'Adicionar Participantes'
     fill_in 'Email', with: user2.email
     click_on 'Confirmar'
 
-    expect(page).to
-      have_content("Usuário #{user2.name} (#{user2.email}) foi adiconado ao grupo #{group.name}")
+    expect(page).to have_content("Usuário #{user2.name} (#{user2.email}) foi adicionado ao grupo #{group.name}")
     expect(page).to have_content("Adicionar participantes para #{group.name}")
     expect(page).to have_link('Voltar para Grupo')
   end
@@ -43,7 +42,7 @@ feature 'User adds participant to group' do
     login_as(user, scope: :user)
     
     visit root_path
-    click_on 'Meus Grupos'
+    click_on 'Ver meus grupos'
     click_on group.name
     click_on 'Adicionar Participantes'
     fill_in 'Email', with: user2.email
@@ -53,8 +52,26 @@ feature 'User adds participant to group' do
     click_on 'Voltar para Grupo'
 
     expect(page).to have_content(user.name)
-    expect(page).to have_content(user.name2)
-    expect(page).to have_content(user.name3)
+    expect(page).to have_content(user2.name)
+    expect(page).to have_content(user3.name)
     expect(page).to have_content('Total de Participantes: 3')
+  end
+
+  scenario 'but informs another user wrong email' do
+    user = create(:user)
+    group = create(:group, name: 'Jogadores de Tabuleiro', user: user)
+    create(:group_participation, user: user, group: group)
+    login_as(user, scope: :user)
+
+    visit root_path
+    click_on 'Ver meus grupos'
+    click_on group.name
+    click_on 'Adicionar Participantes'
+    fill_in 'Email', with: 'teste@teste.com'
+    click_on 'Confirmar'
+
+    expect(page).to have_content("Não foi encontrado um usuário com este email. Verifique o endereço informado.")
+    expect(page).to have_content("Adicionar participantes para #{group.name}")
+    expect(page).to have_link('Voltar para Grupo')
   end
 end

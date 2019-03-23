@@ -1,0 +1,16 @@
+
+<h2><%= "Adicionar participantes para #{@group.name}" %></h2>
+
+<% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "flash #{key}" %>
+<% end %>
+
+<%= form_for @group, url: confirm_participant_group_path do |f| %>
+  <%= label_tag :email, 'Email' %>
+  <%= text_field_tag :email %>
+  <%= f.submit 'Confirmar' %>
+<% end %>
+
+<p>
+  <%= link_to 'Voltar para Grupo', group_path(@group) %>
+</p>
