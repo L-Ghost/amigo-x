@@ -27,6 +27,20 @@ feature 'User views Group Participants' do
     expect(page).to have_link('Adicionar Participantes')
   end
 
+  scenario 'and sees add participant page' do
+    group_creator = create(:user)
+    group = create(:group, user: group_creator, name: 'Grupo da Faculdade')
+    login_as(group_creator, scope: :user)
+    
+    visit root_path
+    click_on 'Ver grupos criados por mim'
+    click_on group.name
+    click_on 'Adicionar Participantes'
+    
+    expect(page).to have_content("Adicionar participantes para #{group.name}")
+    expect(page).to have_link('Voltar para Grupo')
+  end
+
   scenario 'without adding any participant' do
     group_creator = create(:user)
     group = create(:group, user: group_creator, name: 'Grupo da Faculdade')
