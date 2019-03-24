@@ -1,0 +1,28 @@
+<h1><%= "#{@group.name} - Sessões" %></h1>
+
+<div>
+  <div>
+    <ul>
+      <% @group.sessions.each do |session| %>
+        <li>
+          <%= link_to session.name %>
+        </li>
+      <% end %>
+    </ul>
+
+    <p>
+      <%= "Total de Sessões: #{@group.sessions.count}" %>
+    </p>
+  </div>
+
+  <div>
+    <% if @group.user == current_user %>
+      <p>
+        <%= link_to 'Criar nova Sessão' %>
+      </p>
+    <% end %>
+    <p>
+      <%= link_to 'Voltar para Grupo', group_path(@group) %>
+    </p>
+  </div>
+</div>

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get :add_participant
       patch :confirm_participant
     end
+    resources :sessions, only: [:index]
   end
   
 end

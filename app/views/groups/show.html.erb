@@ -3,21 +3,30 @@
 <p><%= "Criado por: #{@group.user.email}" %></p>
 
 <div>
-  <h3>Participantes do Grupo</h3>
+  <div>
+    <h3>Participantes do Grupo</h3>
   
-  <ul>
-    <% @group.users.each do |participant| %>
-      <li><%= participant.name %></li>
-    <% end %>
-  </ul>
+    <ul>
+      <% @group.users.each do |participant| %>
+        <li><%= participant.name %></li>
+      <% end %>
+    </ul>
 
-  <p>
-    <%= "Total de Participantes: #{@group.users.count}" %>
-  </p>
-  <% if @group.user == current_user %>
     <p>
-      <%= link_to 'Adicionar Participantes', add_participant_group_path(@group) %>
+      <%= "Total de Participantes: #{@group.users.count}" %>
     </p>
-  <% end %>
+  </div>
+  
+  <div>
+    <p>
+      <%= link_to 'Ver sessões do Grupo', group_sessions_path(@group) %>
+    </p>
+
+    <% if @group.user == current_user %>
+      <p>
+        <%= link_to 'Adicionar Participantes', add_participant_group_path(@group) %>
+      </p>
+    <% end %>
+  </div>
 
 <div>

@@ -21,11 +21,13 @@ feature 'User view group sessions' do
     click_on group.name
     click_on 'Ver sessões do Grupo'
     
+    expect(page).to have_css('h1', text: "#{group.name} - Sessões")
     expect(page).to have_link(sdf.name)
     expect(page).to have_link(sda.name)
     expect(page).to have_link(sdj.name)
     expect(page).to have_link('Criar nova Sessão')
     expect(page).to have_content('Total de Sessões: 3')
+    expect(page).to have_link('Voltar para Grupo')
   end
 
   scenario 'when it is member of the group' do
@@ -48,10 +50,12 @@ feature 'User view group sessions' do
     click_on group.name
     click_on 'Ver sessões do Grupo'
     
+    expect(page).to have_css('h1', text: "#{group.name} - Sessões")
     expect(page).to have_link(sdf.name)
     expect(page).to have_link(sda.name)
     expect(page).to have_link(sdj.name)
     expect(page).not_to have_link('Criar nova Sessão')
     expect(page).to have_content('Total de Sessões: 3')
+    expect(page).to have_link('Voltar para Grupo')
   end
 end
