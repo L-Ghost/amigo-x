@@ -1,0 +1,30 @@
+<h1><%= link_to "#{@group.name} - #{@session.name}" %></h1>
+
+<div>
+  <div>
+    <p>Ainda não foi realizado o sorteio desta Sessão</p>
+    <% if @group.user == current_user %>
+      <p>
+        <%= link_to 'Realizar Sorteio' %>
+      </p>
+    <% end %>
+  </div>
+
+  <div>
+    <h3>Participantes da Sessão</h3>
+  
+    <ul>
+      <% @session.users.each do |participant| %>
+        <li><%= participant.name %></li>
+      <% end %>
+    </ul>
+
+    <p>
+      <%= "Total de Participantes: #{@session.users.count}" %>
+    </p>
+  </div>
+
+  <div>
+    
+  </div>
+</div>

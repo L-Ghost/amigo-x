@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :groups
   has_many :group_participations
   has_many :groups_participating, through: :group_participations, source: :group
+  has_many :session_participations
   
   validates :name, presence: {message: 'Você precisa informar um nome'}
 end

@@ -22,7 +22,7 @@ feature 'User views session participants' do
     click_on 'Ver meus grupos'
     click_on group.name
     click_on 'Ver sessões do Grupo'
-    click_on sdf
+    click_on sdf.name
     
     expect(page).to have_css('h1', text: "#{group.name} - #{sdf.name}")
     expect(page).to have_css('h3', text: 'Participantes da Sessão')
@@ -57,7 +57,7 @@ feature 'User views session participants' do
     click_on 'Ver meus grupos'
     click_on group.name
     click_on 'Ver sessões do Grupo'
-    click_on sdf
+    click_on sdf.name
     
     expect(page).to have_css('h1', text: "#{group.name} - #{sdf.name}")
     expect(page).to have_css('h3', text: 'Participantes da Sessão')
@@ -92,7 +92,7 @@ feature 'User views session participants' do
     click_on 'Ver meus grupos'
     click_on group.name
     click_on 'Ver sessões do Grupo'
-    click_on sda
+    click_on sda.name
 
     expect(page).to have_css('h1', text: "#{group.name} - #{sda.name}")
     expect(page).not_to have_content('Ainda não foi realizado o sorteio desta Sessão')
@@ -121,7 +121,7 @@ feature 'User views session participants' do
     click_on 'Ver meus grupos'
     click_on group.name
     click_on 'Ver sessões do Grupo'
-    click_on sda
+    click_on sda.name
 
     expect(page).to have_css('h1', text: "#{group.name} - #{sda.name}")
     expect(page).to have_content('Ainda não foi realizado o sorteio desta Sessão')

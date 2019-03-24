@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_24_201205) do
+ActiveRecord::Schema.define(version: 2019_03_24_213827) do
 
   create_table "group_participations", force: :cascade do |t|
     t.integer "user_id"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 2019_03_24_201205) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_groups_on_user_id"
+  end
+
+  create_table "session_participations", force: :cascade do |t|
+    t.integer "session_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["session_id"], name: "index_session_participations_on_session_id"
+    t.index ["user_id"], name: "index_session_participations_on_user_id"
   end
 
   create_table "sessions", force: :cascade do |t|
