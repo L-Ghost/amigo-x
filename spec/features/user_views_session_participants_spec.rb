@@ -34,6 +34,7 @@ feature 'User views session participants' do
     expect(page).to have_content('Ainda não foi realizado o sorteio desta Sessão')
     expect(page).to have_link('Realizar Sorteio')
     expect(page).not_to have_content('Você tirou o participante ')
+    expect(page).to have_link('Voltar para Sessões')
   end
 
   scenario 'when it is owner of the group, and raffle has already occurred' do
@@ -69,6 +70,7 @@ feature 'User views session participants' do
     expect(page).not_to have_content('Ainda não foi realizado o sorteio desta Sessão')
     expect(page).not_to have_link('Realizar Sorteio')
     expect(page).to have_content("Você tirou o participante #{user2.name}")
+    expect(page).to have_link('Voltar para Sessões')
   end
 
   scenario 'when raffle has already occurred, and user is not group owner' do

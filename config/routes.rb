@@ -19,5 +19,11 @@ Rails.application.routes.draw do
     end
     resources :sessions, only: [:index, :show, :new, :create]
   end
+
+  resources :sessions, only: [] do
+    member do
+      patch :make_raffle
+    end
+  end
   
 end

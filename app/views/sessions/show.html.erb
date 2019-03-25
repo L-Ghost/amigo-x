@@ -3,6 +3,9 @@
 <div>
   <div>
     <% if @session.presented_users.count > 0 %>
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "flash #{key}" %>
+      <% end %>
       <p>
         <%= "Você tirou o participante #{@presented_user.name}" %>
       </p>
@@ -11,7 +14,7 @@
 
       <% if @group.user == current_user %>
         <p>
-          <%= link_to 'Realizar Sorteio' %>
+          <%= link_to 'Realizar Sorteio', make_raffle_session_path(@session), method: :patch %>
         </p>
       <% end %>
     <% end %>
@@ -32,6 +35,8 @@
   </div>
 
   <div>
-    
+    <p>
+      <%= link_to 'Voltar para Sessões', group_sessions_path(@group) %>
+    </p>
   </div>
 </div>
