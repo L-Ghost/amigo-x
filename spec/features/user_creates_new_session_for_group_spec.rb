@@ -95,7 +95,6 @@ feature 'User creates new session for group' do
     click_on 'Criar nova Sessão'
     fill_in 'Nome', with: 'Sorteio Campus Party'
     click_on 'Confirmar'
-    click_on Session.last.name
 
     expect(page).to have_content('Não foi possível criar a Sessão')
     expect(page).to have_content('É necessário haver no mínimo três pessoas participando de um grupo para criar uma Sessão')
