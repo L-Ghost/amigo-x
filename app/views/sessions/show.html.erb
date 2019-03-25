@@ -6,9 +6,9 @@
       <% flash.each do |key, value| %>
         <%= content_tag :div, value, class: "flash #{key}" %>
       <% end %>
-      <p>
+      <h2>
         <%= "Você tirou o participante #{@presented_user.name}" %>
-      </p>
+      </h2>
     <% else %>
       <p>Ainda não foi realizado o sorteio desta Sessão</p>
 
