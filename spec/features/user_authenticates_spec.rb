@@ -31,5 +31,6 @@ feature 'User authenticates' do
     expect(page).to have_link('Entrar')
     expect(page).not_to have_link('Sair')
     expect(page).to have_link('Criar nova Conta')
+    expect(page).to have_link('Home')
   end
 end

@@ -20,6 +20,8 @@
       <p>
         <%= link_to 'Criar nova Sessão', new_group_session_path(@group) %>
       </p>
+    <% else %>
+      <p>Contacte o dono do grupo para a criação de novas Sessões</p>
     <% end %>
     <p>
       <%= link_to 'Voltar para Grupo', group_path(@group) %>

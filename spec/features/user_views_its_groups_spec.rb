@@ -14,6 +14,7 @@ feature 'User views its groups' do
     expect(page).to have_css('li', text: xmas_group.name)
     expect(page).to have_css('li', text: estr_group.name)
     expect(page).to have_content('Total de Grupos: 2')
+    expect(page).to have_link('Home')
   end
 
   scenario 'and see details of a single group' do
@@ -28,6 +29,7 @@ feature 'User views its groups' do
     expect(current_path).to eq(group_path(xmas_group))
     expect(page).to have_css('h1', text: xmas_group.name)
     expect(page).to have_content("Criado por: #{user.email}")
+    expect(page).to have_link('Home')
   end
 
   scenario 'where user is a participant' do
@@ -47,5 +49,6 @@ feature 'User views its groups' do
     expect(page).to have_css('li', text: group2.name)
     expect(page).not_to have_css('li', text: group3.name)
     expect(page).to have_content('Total de Grupos: 2')
+    expect(page).to have_link('Home')
   end
 end

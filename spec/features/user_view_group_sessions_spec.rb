@@ -28,6 +28,7 @@ feature 'User view group sessions' do
     expect(page).to have_link('Criar nova Sessão')
     expect(page).to have_content('Total de Sessões: 3')
     expect(page).to have_link('Voltar para Grupo')
+    expect(page).not_to have_content('Contacte o dono do grupo para a criação de novas Sessões')
   end
 
   scenario 'when it is member of the group' do
@@ -57,5 +58,6 @@ feature 'User view group sessions' do
     expect(page).not_to have_link('Criar nova Sessão')
     expect(page).to have_content('Total de Sessões: 3')
     expect(page).to have_link('Voltar para Grupo')
+    expect(page).to have_content('Contacte o dono do grupo para a criação de novas Sessões')
   end
 end
