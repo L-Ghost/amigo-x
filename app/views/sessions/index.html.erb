@@ -18,7 +18,7 @@
   <div>
     <% if @group.user == current_user %>
       <p>
-        <%= link_to 'Criar nova Sessão' %>
+        <%= link_to 'Criar nova Sessão', new_group_session_path(@group) %>
       </p>
     <% end %>
     <p>

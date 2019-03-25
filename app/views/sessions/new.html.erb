@@ -1,0 +1,12 @@
+<% if @session.errors.any? %>
+  <p>Não foi possível criar a Sessão</p>
+  <% @session.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+<% end %>
+
+<%= form_for([@group, @session]) do |f| %>
+  <%= f.label :name, 'Nome' %>
+  <%= f.text_field :name %>
+  <%= f.submit 'Confirmar' %>
+<% end %>

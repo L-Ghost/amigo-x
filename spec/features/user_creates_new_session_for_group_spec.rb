@@ -50,6 +50,5 @@ feature 'User creates new session for group' do
     expect(page).to have_content('Não foi possível criar a Sessão')
     expect(page).to have_content('Você precisa dar um nome para a Sessão')
     expect(Session.count).to eq(0)
-    expect(current_path).not_to eq(group_sessions_path(group))
   end
 end
